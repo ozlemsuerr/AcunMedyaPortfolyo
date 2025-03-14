@@ -1,0 +1,40 @@
+﻿@model List<AcunMedyaPortfolyo.Models.Tbl_Skills>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h2 style="background-color:aliceblue">Burası Yetenekler Sayfası</h2>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Kategory Sayısı</th>
+                <th>SkillsID</th>
+                <th>Description</th>
+                <th>SkillsName</th>
+                <th>Derece</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@item.SkillsID</td>
+                    <td>@item.Description</td>
+                    <td>@item.SkillsName</td>
+                    <td>@item.Derece</td>
+                    <td><a href="/Skills/UpdateSkills/@item.SkillsID" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/Skills/RemoveSkills/@item.SkillsID" class="btn btn-danger">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-outline-primary" href="/Skills/CreateSkills/">Oluştur</a>
+</div>

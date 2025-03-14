@@ -1,0 +1,57 @@
+﻿@model List<AcunMedyaPortfolyo.Models.Tbl_About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h2 style="background-color:aliceblue">Burası Hakkında Sayfası</h2>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Kategory Sayısı</th>
+                <th>AboutID</th>
+                <th>Description</th>
+                <th>ImageURL</th>
+                <th>Title</th>
+                <th>Description2</th>
+                <th>Birthday</th>
+                <th>Website</th>
+                <th>Phone</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>Degree</th>
+                <th>Email</th>
+                <th>Freelance</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@item.AboutID</td>
+                    <td>@item.Description</td>
+                    <td><img src="@item.ImageURL style="width:60px"/td>
+                    <td>@item.Title</td>
+                    <td>@item.Description2</td>
+                    <td>@item.Birthday</td>
+                    <td>@item.Website</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Age</td>
+                    <td>@item.City</td>
+                    <td>@item.Degree</td>
+                    <td>@item.Email</td>
+                    <td>@item.Freelance</td>
+                    <td><a href="/About/UpdateAbout/@item.AboutID" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/About/RemoveAbout/@item.AboutID" class="btn btn-danger">Sil</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-outline-primary" href="/About/CreateAbout/">Oluştur</a>
+</div>

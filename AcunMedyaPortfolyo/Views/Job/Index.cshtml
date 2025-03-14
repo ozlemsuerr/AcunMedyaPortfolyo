@@ -1,0 +1,44 @@
+﻿@model List<AcunMedyaPortfolyo.Models.Tbl_Job>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h2 style="background-color:aliceblue">Burası Deneyim Sayfasıdır</h2>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Kategory Sayısı</th>
+                <th>JobID</th>
+                <th>Title</th>
+                <th>StartYear</th>
+                <th>EndYear</th>
+                <th>CompanyName</th>
+                <th>Description</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@item.JobID</td>
+                    <td>@item.Title</td>
+                    <td>@item.StartYear</td>
+                    <td>@item.EndYear</td>
+                    <td>@item.CompanyName</td>
+                    <td>@item.Description </td>
+                    <td><a href="/Job/UpdateJob/@item.JobID" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/Job/RemoveJob/@item.JobID" class="btn btn-danger">Sil</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-outline-primary" href="/Job/CreateJob/">Oluştur</a>
+</div>

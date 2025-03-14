@@ -1,0 +1,46 @@
+﻿@model List<AcunMedyaPortfolyo.Models.Tbl_Education>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h2 style="background-color:aliceblue">Burası Eğitim Sayfası</h2>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Kategory Sayısı</th>
+                <th>EducationID</th>
+                <th>StartYear</th>
+                <th>EdnYear</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Section</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@item.EducationID</td>
+                    <td>@item.StartYear</td>
+                    <td>@item.EdnYear</td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Section</td>
+                    <td><a href="/Education/UpdateEducation/@item.EducationID" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/Education/RemoveEducation/@item.EducationID" class="btn btn-danger">Sil</a></td>
+
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-outline-primary" href="/Education/CreateEducation/">Oluştur</a>
+</div>

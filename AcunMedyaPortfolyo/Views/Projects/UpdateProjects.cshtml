@@ -1,0 +1,25 @@
+﻿@model AcunMedyaPortfolyo.Models.Tbl_Project
+@{
+    ViewBag.Title = "UpdateProjects";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Proje Güncelleme Sayfası</h2>
+
+
+<form method="post">
+    @Html.HiddenFor(x => x.ProjectID) <br />
+    <label>ProjectName</label>
+    @Html.TextBoxFor(x => x.ProjectName) <br />
+    <label>Description</label>
+    @Html.TextBoxFor(x => x.Description) <br />
+    <label>ProjectLink</label>
+    @Html.TextBoxFor(x => x.ProjectLink) <br />
+    <label>Image1</label>
+    @Html.TextBoxFor(x => x.Image1) <br />
+    <label>Image2</label>
+    @Html.TextBoxFor(x => x.Image2) <br />
+    <label>Image3</label>
+    @Html.TextBoxFor(x => x.Image3) <br /> <br />
+    <button>Güncelle</button>
+</form>

@@ -1,0 +1,21 @@
+﻿@model AcunMedyaPortfolyo.Models.Tbl_Services
+@{
+    ViewBag.Title = "UpdateServices";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Services Güncelleme Sayfası</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.ServicesID) <br />
+    <label>Title</label>
+    @Html.TextBoxFor(x => x.Title) <br />
+    <label>Description</label>
+    @Html.TextBoxFor(x => x.Description) <br />
+<label>Description2</label>
+    @Html.TextBoxFor(x => x.Description2) <br />
+<label>IconURL</label>
+    @Html.TextBoxFor(x => x.IconURL) <br /> <br />
+    <button>Güncelle</button>
+</form>
+

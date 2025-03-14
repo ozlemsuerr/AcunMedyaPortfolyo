@@ -1,0 +1,43 @@
+﻿@model List <AcunMedyaPortfolyo.Models.Tbl_Message>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h2 style="background-color:aliceblue">Burası Mesaj Sayfası</h2>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Kategory Sayısı</th>
+                <th>MessageID</th>
+                <th>NameSurname</th>
+                <th>Mail</th>
+                <th>Subject</th>
+                <th>Massage</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@item.MessageID</td>
+                    <td>@item.NameSurname</td>
+                    <td>@item.Mail</td>
+                    <td>@item.Subject</td>
+                    <td>@item.Massage</td>
+                    <td><a href="/Message/UpdateMessage/@item.MessageID" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/Message/RemoveMessage/@item.MessageID" class="btn btn-danger">Sil</a></td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-outline-primary" href="/Message/CreateMessage/">Oluştur</a>
+</div>

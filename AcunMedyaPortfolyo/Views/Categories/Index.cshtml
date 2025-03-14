@@ -1,0 +1,40 @@
+﻿@model List<AcunMedyaPortfolyo.Models.Tbl_Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h2 style="background-color:aliceblue">Burası Kategori Sayfası</h2>
+
+<p>Merhabalarrrr</p>
+
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Kategory Sayısı</th>
+                <th>Kategori Id</th>
+                <th>Kategori Adı</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@item.CategoryID</td>
+                    <td>@item.CategoryName</td>
+                    <td><a class="btn btn-success" href="/Categories/UpdateCategory/@item.CategoryID">Güncelle</a></td>
+                    <td><a class="btn btn-danger" href="/Categories/RemoveCategory/@item.CategoryID/">Sil</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-outline-primary" href="/Categories/CreateCategories/">Oluştur</a>
+</div>

@@ -1,0 +1,19 @@
+﻿@model AcunMedyaPortfolyo.Models.Tbl_Skills
+@{
+    ViewBag.Title = "UpdateSkills";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Skills Güncelleme Sayfası</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.SkillsID) <br />
+    <label>Description</label>
+    @Html.TextBoxFor(x => x.Description) <br />
+<label>SkillsName</label>  
+    @Html.TextBoxFor(x => x.SkillsName) <br />
+<label>Derece</label>
+    @Html.TextBoxFor(x => x.Derece) <br /> <br />
+    <button>Güncelle</button>
+</form>
+
