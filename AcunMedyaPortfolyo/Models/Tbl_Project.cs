@@ -22,5 +22,7 @@ namespace AcunMedyaPortfolyo.Models
         public string Image2 { get; set; }
         public string Image3 { get; set; }
         public Nullable<int> CatagoryID { get; set; }
+    
+        public virtual Tbl_Category Tbl_Category { get; set; }
     }
 }

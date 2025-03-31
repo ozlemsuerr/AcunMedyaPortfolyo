@@ -1,0 +1,30 @@
+﻿@model List<AcunMedyaPortfolyo.Models.Tbl_Skills>
+<section id="team" class="skills section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Yetenekler</h2>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+            <!--  Row başlatılıyor, tüm öğeler buraya ekleniyor -->
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-6 col-md-6">
+                    <!-- 2 sütun (6+6) olacak şekilde ayarlandı -->
+                    <div class="progress">
+                        <span class="skill"><span>@item.SkillsName</span> <i class="val">@item.Derece%</i></span>
+                        <div class="progress-bar-wrap">
+                            <!-- width'i dinamik olarak ayarlıyoruz -->
+                            <div class="progress-bar" role="progressbar" style="width:@item.Derece%;" aria-valuenow="@item.Derece" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div> <!-- End of col-lg-6 -->
+
+            }
+        </div> <!-- End of row -->
+    </div>
+
+</section>

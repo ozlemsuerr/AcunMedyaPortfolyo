@@ -1,0 +1,77 @@
+﻿@model List<AcunMedyaPortfolyo.Models.Tbl_Services>
+<section id="services" class="services section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Hizmetler</h2>
+       
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="row gy-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-item">
+                        <!-- Icon -->
+                        <div class="service-icon">
+                            <!-- Dinamik ikon veritabanından alınıyor -->
+                            <img src="@item.IconURL" alt="Hizmet İkonu" width="50">
+
+                        </div>
+                        <!-- Title and Description -->
+                        <h4><a href="" class="stretched-link">@item.Title</a></h4>
+                        <p>@item.Description2</p>
+                    </div>
+                </div><!-- End Service Item -->
+            }
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+    /* İcon için stil */
+    .service-icon i {
+        font-size: 70px; /* İconu büyütme */
+        color: #007bff; /* İconun rengini değiştirme */
+        margin-bottom: 20px; /* Icon ile başlık arasına boşluk ekleme */
+        transition: transform 0.3s ease; /* Hover efekti eklemek için geçiş */
+    }
+
+        /* Hover efekti */
+        .service-icon i:hover {
+            transform: scale(1.2); /* İcon üzerine gelince biraz büyüme */
+        }
+
+    /* Servis kutusu düzeni */
+    .service-item {
+        text-align: center; /* Başlık ve iconu ortalamak */
+        background: #f4f7fa; /* Hafif gri arka plan */
+        padding: 30px; /* Padding ekleme */
+        border-radius: 10px; /* Köşe yuvarlama */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge ekleme */
+        transition: transform 0.3s ease; /* Hover efekti için geçiş */
+    }
+
+        .service-item:hover {
+            transform: translateY(-10px); /* Hover üzerinde kutuyu biraz yukarı kaydırma */
+        }
+
+        /* Başlık stili */
+        .service-item h4 {
+            font-size: 18px; /* Başlık boyutu */
+            font-weight: bold;
+            color: #333; /* Başlık rengi */
+            margin-bottom: 15px;
+        }
+
+        /* Açıklama metni stili */
+        .service-item p {
+            color: #666; /* Açıklama metni rengi */
+            font-size: 14px;
+            line-height: 1.5;
+        }
+</style>

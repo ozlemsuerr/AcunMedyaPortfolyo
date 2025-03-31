@@ -5,33 +5,32 @@
 
 <body>
     <div class="wrapper d-flex align-items-stretch">
-        <nav id="sidebar" class="active">
-            <div class="custom-menu">
-                <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                    <i class="fa fa-bars"></i>
+        <nav style="background-color:midnightblue" id="sidebar" class="active">
+            <div class="custom-menu" style="background-color:midnightblue">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary"style="background-color:midnightblue">
+                    <i class="fa fa-bars" style="background-color:midnightblue"></i>
                 </button>
             </div>
-            <div class="p-4">
-                <h1><a href="index.html" class="logo">Flash</a></h1>
+            <div class="p-4" style="background-color:aliceblue">
+                <h1><a href="index.html" class="logo" style="background-color:midnightblue">Flash</a></h1>
 
             @Html.Action("PartialMenu", "AdminLayout")
 
 
             <div class="mb-5">
-                <h3 class="h6 mb-3">Subscribe for newsletter</h3>
-                <a href="~/Views/AdminLayout/PartialScript.cshtml">~/Views/AdminLayout/PartialScript.cshtml</a>
+                <h3 class="h6 mb-3" style="background-color:midnightblue"  >Subscribe for newsletter</h3>
                 <form action="#" class="subscribe-form">
                     <div class="form-group d-flex">
-                        <div class="icon"><span class="icon-paper-plane"></span></div>
-                        <input type="text" class="form-control" placeholder="Enter Email Address">
+                        <div style="background-color:midnightblue" class="icon"><span class="icon-paper-plane"></span></div>
+                        <input type="text" class="form-control" placeholder="Enter Email Address" style="background-color: midnightblue">
                     </div>
                 </form>
             </div>
 
                 <div class="footer">
-                    <p>
+                    <p style="background-color:midnightblue">
                         Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+                        <script >document.write(new Date().getFullYear());</script > All rights reserved | This template is made with <i  class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
                     </p>
                 </div>
             </div>
@@ -43,7 +42,7 @@
 
 
         </div>
-    </div>AdminLayout
+    </div>
 
 @Html.Action("PartialScript", "AdminLayout")
 

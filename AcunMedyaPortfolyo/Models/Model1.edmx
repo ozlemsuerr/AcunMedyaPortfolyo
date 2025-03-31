@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DbAcunMedyaProject1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DbAcunMedyaProject1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -133,8 +133,19 @@
           <Property Name="Description2" Type="nvarchar" MaxLength="300" />
           <Property Name="ImageURL" Type="nvarchar" MaxLength="1000" />
           <Property Name="Title" Type="nvarchar" MaxLength="300" />
-          <Property Name="CategoryID" Type="int" />
         </EntityType>
+        <Association Name="FK_Tbl_Project_Tbl_Category">
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Project" Type="Self.Tbl_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_Project">
+              <PropertyRef Name="CatagoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DbAcunMedyaProject1ModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_About" EntityType="Self.Tbl_About" Schema="dbo" store:Type="Tables" />
@@ -148,9 +159,12 @@
           <EntitySet Name="Tbl_Skills" EntityType="Self.Tbl_Skills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Slider" EntityType="Self.Tbl_Slider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Testimonials" EntityType="Self.Tbl_Testimonials" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Tbl_Project_Tbl_Category" Association="Self.FK_Tbl_Project_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Project" EntitySet="Tbl_Project" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbAcunMedyaProject1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -188,6 +202,7 @@
           </Key>
           <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tbl_Project" Relationship="DbAcunMedyaProject1Model.FK_Tbl_Project_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_Project" />
         </EntityType>
         <EntityType Name="Tbl_Contact">
           <Key>
@@ -243,6 +258,7 @@
           <Property Name="Image2" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Image3" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="CatagoryID" Type="Int32" />
+          <NavigationProperty Name="Tbl_Category" Relationship="DbAcunMedyaProject1Model.FK_Tbl_Project_Tbl_Category" FromRole="Tbl_Project" ToRole="Tbl_Category" />
         </EntityType>
         <EntityType Name="Tbl_Services">
           <Key>
@@ -272,18 +288,6 @@
           <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="ImageURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Tbl_Testimonials">
-          <Key>
-            <PropertyRef Name="TestimonialsID" />
-          </Key>
-          <Property Name="TestimonialsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="TestimonialsName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Description2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="ImageURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="Title" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="CategoryID" Type="Int32" />
-        </EntityType>
         <EntityContainer Name="DbAcunMedyaProject1Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tbl_About" EntityType="Self.Tbl_About" />
@@ -296,8 +300,35 @@
           <EntitySet Name="Tbl_Services" EntityType="Self.Tbl_Services" />
           <EntitySet Name="Tbl_Skills" EntityType="Self.Tbl_Skills" />
           <EntitySet Name="Tbl_Slider" EntityType="Self.Tbl_Slider" />
-          <EntitySet Name="Tbl_Testimonials" EntityType="Self.Tbl_Testimonials" />
+          <AssociationSet Name="FK_Tbl_Project_Tbl_Category" Association="DbAcunMedyaProject1Model.FK_Tbl_Project_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Project" EntitySet="Tbl_Project" />
+          </AssociationSet>
+          <EntitySet Name="Tbl_Testimonials" EntityType="DbAcunMedyaProject1Model.Tbl_Testimonials" />
         </EntityContainer>
+        <Association Name="FK_Tbl_Project_Tbl_Category">
+          <End Type="DbAcunMedyaProject1Model.Tbl_Category" Role="Tbl_Category" Multiplicity="0..1" />
+          <End Type="DbAcunMedyaProject1Model.Tbl_Project" Role="Tbl_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Tbl_Project">
+              <PropertyRef Name="CatagoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tbl_Testimonials">
+          <Key>
+            <PropertyRef Name="TestimonialsID" />
+          </Key>
+          <Property Name="TestimonialsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="TestimonialsName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Description2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ImageURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -436,13 +467,12 @@
           <EntitySetMapping Name="Tbl_Testimonials">
             <EntityTypeMapping TypeName="DbAcunMedyaProject1Model.Tbl_Testimonials">
               <MappingFragment StoreEntitySet="Tbl_Testimonials">
-                <ScalarProperty Name="TestimonialsID" ColumnName="TestimonialsID" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="TestimonialsName" ColumnName="TestimonialsName" />
-                <ScalarProperty Name="Description2" ColumnName="Description2" />
-                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="Description2" ColumnName="Description2" />
+                <ScalarProperty Name="TestimonialsName" ColumnName="TestimonialsName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TestimonialsID" ColumnName="TestimonialsID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

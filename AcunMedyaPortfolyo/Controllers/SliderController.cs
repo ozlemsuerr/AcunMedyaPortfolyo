@@ -47,7 +47,7 @@ namespace AcunMedyaPortfolyo.Controllers
             deger.NameSurname = model10.NameSurname;
             deger.Description = model10.Description;
             deger.ImageURL = model10.ImageURL;
-            db.SaveChangesAsync();
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
     }

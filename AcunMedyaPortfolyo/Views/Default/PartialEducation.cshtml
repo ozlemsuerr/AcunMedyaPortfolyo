@@ -1,0 +1,25 @@
+﻿@model List<AcunMedyaPortfolyo.Models.Tbl_Education>
+<section id="resume" class="resume section light-background">
+
+    <div class="container">
+        <h3 class="resume-title">Eğitim</h3>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div
+   
+     <div class="resume-item">
+         <h4>@item.Section</h4>
+         <h5>
+             @(item.StartYear.HasValue ? item.StartYear.Value.ToString("yyyy-MM-dd") : "N/A")
+             @(item.EdnYear.HasValue ? item.EdnYear.Value.ToString("yyyy-MM-dd") : "N/A")
+         </h5>
+
+         <p><em>@item.Name</em></p>
+         <p>@item.Description</p>
+     </div><!-- Edn Resume Item -->
+
+
+            }
+
+        </div>

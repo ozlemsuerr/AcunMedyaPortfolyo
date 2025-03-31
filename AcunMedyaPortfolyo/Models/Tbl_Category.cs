@@ -14,7 +14,16 @@ namespace AcunMedyaPortfolyo.Models
     
     public partial class Tbl_Category
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Tbl_Category()
+        {
+            this.Tbl_Project = new HashSet<Tbl_Project>();
+        }
+    
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Project> Tbl_Project { get; set; }
     }
 }

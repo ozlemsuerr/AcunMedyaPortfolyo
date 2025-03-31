@@ -20,6 +20,5 @@ namespace AcunMedyaPortfolyo.Models
         public string Description2 { get; set; }
         public string ImageURL { get; set; }
         public string Title { get; set; }
-        public Nullable<int> CategoryID { get; set; }
     }
 }

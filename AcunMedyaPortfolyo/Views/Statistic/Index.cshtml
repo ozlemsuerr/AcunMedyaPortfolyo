@@ -3,60 +3,55 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h2 class="text-center p-3 bg-light">Burası İstatistik Sayfası</h2>
+<h2 style="color: midnightblue; background-color: aliceblue; padding: 10px; border-radius: 8px;">
+    Burası İstatistik Sayfası
+</h2>
 
 <div class="container d-flex flex-wrap gap-3 justify-content-center">
     <div class="border shadow-lg p-3 w-25 rounded text-white text-center" style="background-color: #FF5733;">
-        <h5 class="font-weight-bold pb-2">Kart 1</h5>
+        <h5 class="font-weight-bold pb-2">Kaç Kategory Var? </h5>
         <ul class="px-3 small list-unstyled">
-            <li>Özelleştirilmiş renk.</li>
-            <li>Live updating as you code.</li>
-            <li>Bootstrap ile modern tasarım.</li>
+
+            <label>@ViewBag.CategoryCount</label>
         </ul>
     </div>
 
     <div class="border shadow-lg p-3 w-25 rounded text-white text-center" style="background-color: #33FF57;">
-        <h5 class="font-weight-bold pb-2">Kart 2</h5>
+        <h5 class="font-weight-bold pb-2">Kaç Referans Var? </h5>
         <ul class="px-3 small list-unstyled">
-            <li>Özelleştirilmiş renk.</li>
-            <li>Live updating as you code.</li>
-            <li>Bootstrap ile modern tasarım.</li>
+    
+            <label>@ViewBag.TestimonialsCount</label>
         </ul>
     </div>
 
     <div class="border shadow-lg p-3 w-25 rounded text-white text-center" style="background-color: #5733FF;">
-        <h5 class="font-weight-bold pb-2">Kart 3</h5>
+        <h5 class="font-weight-bold pb-2">Kaç Proje Var? </h5>
         <ul class="px-3 small list-unstyled">
-            <li>Özelleştirilmiş renk.</li>
-            <li>Live updating as you code.</li>
-            <li>Bootstrap ile modern tasarım.</li>
+      
+            <label>@ViewBag.ProjectsCount</label>
         </ul>
     </div>
 
     <div class="border shadow-lg p-3 w-25 rounded text-white text-center" style="background-color: #FFD700;">
-        <h5 class="font-weight-bold pb-2">Kart 4</h5>
+        <h5 class="font-weight-bold pb-2">En Son Eklenen Yetenek Nedir?</h5>
         <ul class="px-3 small list-unstyled">
-            <li>Özelleştirilmiş renk.</li>
-            <li>Live updating as you code.</li>
-            <li>Bootstrap ile modern tasarım.</li>
+         
+            <label>@ViewBag.SkillsCount</label>
         </ul>
     </div>
 
     <div class="border shadow-lg p-3 w-25 rounded text-white text-center" style="background-color: #FF1493;">
-        <h5 class="font-weight-bold pb-2">Kart 5</h5>
+        <h5 class="font-weight-bold pb-2">İlk Eklenen Referans Nedir? </h5>
         <ul class="px-3 small list-unstyled">
-            <li>Özelleştirilmiş renk.</li>
-            <li>Live updating as you code.</li>
-            <li>Bootstrap ile modern tasarım.</li>
+     
+            <label>@ViewBag.TestimonialsCount1</label>
         </ul>
     </div>
 
     <div class="border shadow-lg p-3 w-25 rounded text-white text-center" style="background-color: #00CED1;">
-        <h5 class="font-weight-bold pb-2">Kart 6</h5>
+        <h5 class="font-weight-bold pb-2">İlk Eklenen Proje Nedir? </h5>
         <ul class="px-3 small list-unstyled">
-            <li>Özelleştirilmiş renk.</li>
-            <li>Live updating as you code.</li>
-            <li>Bootstrap ile modern tasarım.</li>
+            <label>@ViewBag.TestimonialsCount1</label>
         </ul>
     </div>
 </div>
